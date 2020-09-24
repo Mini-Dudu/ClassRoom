@@ -7,4 +7,6 @@ import (
 
 func main() {
 	beego.Run()
+	//beego.Run("9090")
+
 }

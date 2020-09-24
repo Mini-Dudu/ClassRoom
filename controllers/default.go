@@ -22,3 +22,20 @@ func (c *MainController) Get() {
 
 	fmt.Println("用户名：",name,"密码:",password)
 }
+
+func (c *MainController) Post() {
+	//获得请求参数
+	name := c.Ctx.Request.FormValue(("name"))
+	password := c.Ctx.Request.FormValue(("password"))
+
+	fmt.Printf("%T   %T\n",name,password)
+	fmt.Printf("%t   %t",name == "name",password == "123456")
+
+	if name != "dudu" || password != "123456" {
+
+		c.Ctx.WriteString("用户名或者密码错误，请重试！")
+	}else {
+		c.Ctx.WriteString("欢迎来到嘟嘟的主页")
+	}
+	fmt.Println("用户名：",name,"密码:",password)
+}
