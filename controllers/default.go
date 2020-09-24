@@ -1,8 +1,11 @@
 package controllers
 
 import (
+	"Beego_Web/models"
+	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego"
+	"io/ioutil"
 )
 
 type MainController struct {
@@ -23,7 +26,7 @@ func (c *MainController) Get() {
 	fmt.Println("用户名：",name,"密码:",password)
 }
 
-func (c *MainController) Post() {
+func (c *MainController) Post1() {
 	//获得请求参数
 	name := c.Ctx.Request.FormValue(("name"))
 	password := c.Ctx.Request.FormValue(("password"))
@@ -32,10 +35,35 @@ func (c *MainController) Post() {
 	fmt.Printf("%t   %t",name == "name",password == "123456")
 
 	if name != "dudu" || password != "123456" {
-
 		c.Ctx.WriteString("用户名或者密码错误，请重试！")
 	}else {
 		c.Ctx.WriteString("欢迎来到嘟嘟的主页")
 	}
 	fmt.Println("用户名：",name,"密码:",password)
+}
+
+func (c *MainController) Post() {
+
+	//解析JSON格式数据
+	var dudu models.Data
+
+	dataBytes,err := ioutil.ReadAll(c.Ctx.Request.Body)
+	if err != nil {
+		c.Ctx.WriteString("接受失败")
+		return
+	}
+	fmt.Println(string(dataBytes))
+
+	err = json.Unmarshal(dataBytes,&dudu)
+
+	if err != nil {
+
+		fmt.Println(err.Error())
+		c.Ctx.WriteString("解析错误")
+		return
+	}
+
+	fmt.Printf("name:%d age:%d hobby: %d",dudu.Name,dudu.Age,dudu.Hobby)
+
+
 }
