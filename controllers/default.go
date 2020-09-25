@@ -45,7 +45,7 @@ func (c *MainController) Post1() {
 func (c *MainController) Post() {
 
 	//解析JSON格式数据
-	var dudu models.Data
+	var dudu models.User
 
 	dataBytes,err := ioutil.ReadAll(c.Ctx.Request.Body)
 	if err != nil {
@@ -58,12 +58,12 @@ func (c *MainController) Post() {
 
 	if err != nil {
 
-		fmt.Println(err.Error())
+		fmt.Println("错误",err.Error())
 		c.Ctx.WriteString("解析错误")
 		return
 	}
 
-	fmt.Printf("name:%d age:%d hobby: %d",dudu.Name,dudu.Age,dudu.Hobby)
+	fmt.Printf("name:%s age:%s hobby: %s",dudu.Name,dudu.Password)
 
 
 }

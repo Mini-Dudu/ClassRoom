@@ -1,7 +1,9 @@
 package models
 
-type Data struct {
-	Name string
-	Hobby string
-	Age int
+type User struct {
+	Name string `json:"name"`
+	Password string `json:"password"`
+	//Time *time.Time `json:"time"`
 }
+
+
