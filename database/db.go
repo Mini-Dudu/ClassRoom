@@ -1,7 +1,6 @@
 package database
 
 import (
-	"Beego_Web/models"
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
@@ -48,11 +47,10 @@ func OpenDb() (string,error) {
 		return str,nil
 	}
 
-
-	var user models.User
-	Inssert_user(user)
-
-	return str,nil
+	//var user models.User
+	//Inssert_user(user)
+	//
+	//return str,nil
 }
 
 //关闭数据库

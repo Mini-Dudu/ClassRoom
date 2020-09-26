@@ -14,8 +14,10 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 		return
-
 	}
+
+	defer database.CloseDb()
+
 
 	fmt.Println(str)
 	beego.Run()
