@@ -15,3 +15,8 @@ type UserLogin struct {
 }
 
 
+type Aaaaaaa struct {
+	UserId int
+	PassWord string
+}
+

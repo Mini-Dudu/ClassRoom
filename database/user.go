@@ -110,3 +110,8 @@ func Delete_user(userId,userPwd string) (string,bool) {
 func Update_userInfo() {
 
 }
+
+//aaaaaaaa
+func Update_userInfoaaaa() {
+
+}
