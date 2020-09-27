@@ -12,4 +12,7 @@ func init() {
 
 	//处理注册用户
 	beego.Router("/reginster",&controllers.Register{})
+
+	//处理用户登入
+	beego.Router("/login",&controllers.UserLogin{})
 }

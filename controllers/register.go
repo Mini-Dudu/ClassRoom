@@ -36,7 +36,7 @@ func (r *Register) Post(){
 	}
 
 	//3.将解析后得到的user数据保存到数据库中
-	_,err = database.Inssert_user(user)
+	userId,_,err := database.Inssert_user(user)
 	if err != nil {
 		 r.Ctx.WriteString("将解析后得到的user数据保存到数据库中时出错，请重试！")
 		return
@@ -44,7 +44,7 @@ func (r *Register) Post(){
 
 	//4.反馈注册成功与否
 	//方法一:
-	r.Ctx.WriteString("注册成功")
+	r.Ctx.WriteString("注册成功,请牢记您用于登入的数字Id:"+string(userId))
 
 	////方法二:
 	//result := models.ResponseResult{
@@ -56,3 +56,4 @@ func (r *Register) Post(){
 	//r.Data["json"] = &result
 	//r.ServeJSONP()
 }
+
