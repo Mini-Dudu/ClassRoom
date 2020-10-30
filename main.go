@@ -18,7 +18,6 @@ func main() {
 
 	defer database.CloseDb()
 
-
 	fmt.Println(str)
 	beego.Run()
 }
