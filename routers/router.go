@@ -15,4 +15,6 @@ func init() {
 
 	//处理用户登入
 	beego.Router("/login",&controllers.UserLogin{})
+	
+	
 }
