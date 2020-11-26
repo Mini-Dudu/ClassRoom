@@ -21,3 +21,5 @@ func main() {
 	fmt.Println(str)
 	beego.Run()
 }
+
+
